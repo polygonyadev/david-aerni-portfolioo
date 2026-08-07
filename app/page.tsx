@@ -27,8 +27,10 @@ export default async function Home() {
       </section>
 
       <section className="resume section">
-        <p className="eyebrow">02 / Lebenslauf</p>
-        <div className="resume-list">{content.resume.map((item) => <article key={`${item.year}-${item.title}`}><span>{item.year}</span><h3>{item.title}</h3><p>{item.organisation}</p></article>)}</div>
+        <details className="resume-accordion">
+          <summary><p className="eyebrow">02 / Lebenslauf</p><span className="accordion-icon" aria-hidden="true" /></summary>
+          <div className="resume-list">{content.resume.map((item) => <article key={`${item.year}-${item.title}`}><span>{item.year}</span><h3>{item.title}</h3><p>{item.organisation}</p></article>)}</div>
+        </details>
       </section>
 
       <section className="work section" id="work">

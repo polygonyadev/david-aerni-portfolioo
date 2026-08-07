@@ -10,3 +10,7 @@
 
 /* Brand accent: technical orange */
 :root{--lime:#ff6b2c}.email span{color:#c84112}.object-core{box-shadow:27px 27px 0 rgba(255,107,44,.24),54px 54px 0 rgba(255,107,44,.1)}
+
+/* Collapsible resume */
+.resume{display:block}.resume-accordion{border-top:1px solid var(--line)}.resume-accordion summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:22px 0}.resume-accordion summary::-webkit-details-marker{display:none}.accordion-icon{width:24px;height:24px;border:1px solid var(--ink);border-radius:50%;position:relative;transition:transform .3s ease,background .3s ease}.accordion-icon:before,.accordion-icon:after{content:"";position:absolute;left:6px;right:6px;top:11px;border-top:1px solid var(--ink)}.accordion-icon:after{transform:rotate(90deg);transition:transform .3s ease}.resume-accordion[open] .accordion-icon{background:var(--lime);transform:rotate(180deg)}.resume-accordion[open] .accordion-icon:after{transform:rotate(0)}.resume-list{animation:resume-open .35s ease both}.resume-accordion .resume-list{margin-left:27%}@keyframes resume-open{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:650px){.resume .eyebrow{margin:0}.resume-accordion .resume-list{margin-left:0}}
