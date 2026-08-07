@@ -1,0 +1,10 @@
+import { defineField, defineType } from "sanity";
+
+const image = (name: string, title: string) => defineField({ name, title, type: "image", options: { hotspot: true }, fields: [defineField({ name: "alt", title: "Alternativtext", type: "string" })] });
+export const schemaTypes = [
+  defineType({ name: "siteSettings", title: "Website", type: "document", fields: [defineField({ name: "intro", title: "Einleitung Startseite", type: "text" }), defineField({ name: "aboutTitle", title: "Über mich – Titel", type: "string" }), defineField({ name: "aboutEmphasis", title: "Über mich – hervorgehobene Zeile", type: "string" }), defineField({ name: "aboutText", title: "Über mich – Text", type: "text" }), defineField({ name: "email", title: "E-Mail", type: "string" })] }),
+  defineType({ name: "project", title: "Projekt", type: "document", fields: [defineField({ name: "title", title: "Titel", type: "string" }), defineField({ name: "category", title: "Kategorie", type: "string" }), image("image", "Titelbild"), defineField({ name: "orderRank", title: "Reihenfolge", type: "number" })] }),
+  defineType({ name: "galleryImage", title: "Galeriebild", type: "document", fields: [image("image", "Bild"), defineField({ name: "caption", title: "Bildunterschrift", type: "string" }), defineField({ name: "orderRank", title: "Reihenfolge", type: "number" })] }),
+  defineType({ name: "resumeEntry", title: "Lebenslauf-Station", type: "document", fields: [defineField({ name: "year", title: "Jahr / Zeitraum", type: "string" }), defineField({ name: "title", title: "Position oder Abschluss", type: "string" }), defineField({ name: "organisation", title: "Unternehmen / Schule", type: "string" }), defineField({ name: "orderRank", title: "Reihenfolge", type: "number" })] }),
+  defineType({ name: "service", title: "Leistung", type: "document", fields: [defineField({ name: "title", title: "Titel", type: "string" }), defineField({ name: "description", title: "Beschreibung", type: "text" }), defineField({ name: "orderRank", title: "Reihenfolge", type: "number" })] }),
+];
