@@ -34,12 +34,12 @@ export default async function Home() {
       </section>
 
       <section className="work section" id="work">
-        <p className="eyebrow">03 / Ausgewählte Arbeiten</p>
-        <div className="projects">{content.projects.map((project, index) => (
-          <article className={`project project-${index % 3}`} key={project.title}>
-            <div className="project-art">{project.image ? <img src={imageUrl(project.image, 1600)} alt={project.image.alt || project.title} /> : <div className="shape" />}</div>
-            <div className="project-info"><span>{String(index + 1).padStart(2, "0")} — {project.category}</span><h3>{project.title}</h3><a href="#contact" aria-label={`${project.title} anfragen`}>↗</a></div>
-          </article>))}</div>
+        <p className="eyebrow">03 / Leistungen</p>
+        <div className="service-cards">{content.services.map((service, index) => (
+          <a className={`service-card service-card-${index % 3}`} href={`/leistungen/${["konstruktion", "3d-modellierung", "visualisierung"][index] || "konstruktion"}`} key={service.title}>
+            <div className="service-card-art"><div className="service-shape" /><span className="service-number">{String(index + 1).padStart(2, "0")}</span><span className="service-arrow">↗</span></div>
+            <div className="service-card-copy"><h3>{service.title}</h3><p>{service.description}</p></div>
+          </a>))}</div>
       </section>
 
       <section className="gallery section">
@@ -47,9 +47,7 @@ export default async function Home() {
         <div className="gallery-grid">{content.gallery.map((entry, index) => <figure className={`gallery-${index % 5}`} key={`${entry.caption}-${index}`}>{entry.image ? <img src={imageUrl(entry.image, 1200)} alt={entry.image.alt || entry.caption || "Galeriebild"} /> : <div className="gallery-placeholder" />}<figcaption>{entry.caption}</figcaption></figure>)}</div>
       </section>
 
-      <section className="services section" id="services"><p className="eyebrow">05 / Leistungen</p><div className="service-list">{content.services.map((service, index) => <article key={service.title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{service.title}</h3><p>{service.description}</p></article>)}</div></section>
-
-      <section className="contact" id="contact"><p className="eyebrow">06 / Kontakt</p><h2>Eine Idee<br />verdient <em>Form.</em></h2><a className="email" href={`mailto:${content.settings.email}`}>{content.settings.email} <span>↗</span></a><p className="contact-note">Schreib mir kurz, woran du arbeitest.</p></section>
+      <section className="contact" id="contact"><p className="eyebrow">05 / Kontakt</p><h2>Eine Idee<br />verdient <em>Form.</em></h2><a className="email" href={`mailto:${content.settings.email}`}>{content.settings.email} <span>↗</span></a><p className="contact-note">Schreib mir kurz, woran du arbeitest.</p></section>
       <footer><span>© {new Date().getFullYear()} David Aerni</span><span>Konstruktion & Visualisierung</span><a href="#top">Nach oben ↑</a></footer>
     </main>
   );
